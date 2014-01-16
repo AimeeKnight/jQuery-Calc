@@ -2,6 +2,7 @@ $(document).ready(initalize);
 
 function initalize(){
   $('.number').click(displayNumber);
+  $('.operator').click(operate);
   $('#push').click(compute);
   $('#push').click(computeMany);
   $('#push').click(gatherInfo);
@@ -9,16 +10,42 @@ function initalize(){
 }
 
 function displayNumber(){
+  var display = $('answer').text();
+  var $this = $this.text();
+  var output;
+
+  if (current === '.' && display.indexOf('.') !== -1) return;
+  if(display === '0' && current !== '.')
+    output = current;
+  else
+    output = display + current
+  $('answer').text(output);
+
+
+  if ($('#answer').text() === '0'){
+    $('#answer').text('');
+  }
+  oldNum = $('#answer').text();
   $this = $(this).text();
-  $('#answer').text($this);
+  if ($this.indexOf('.') === -1)
+  // $('#answer').text(this.textContent);
+  $('#answer').text(oldNum + "  " + $this);
+}
+
+function operate(){
+ var num1 = $('#answer').text();
+ $('#queue').text(num1);
+ num1 = parseFloat(num1);
+ if ($('#answer').text() === '0'){
+   $('#answer').text('');
+ }
 }
 
 function clear(){
-  $('#num1').val('');
-  $('#num1').focus('');
-  $('#num2').val('');
+  $('#').focus('');
   $('#op').val('');
-  $('#result').text('');
+  $('#answer').text('0');
+  $('#queue').text('');
 }
 
 function gatherInfo(){
