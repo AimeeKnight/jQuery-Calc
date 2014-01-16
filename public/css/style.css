@@ -52,17 +52,22 @@ h1 {color: #34495e;}
 
 #answer {
   background-color: #ecf0f1;
-  color: red;
-  width: 500px;
+  color: #2c3e50;
+  width: 480px;
   height: 30px;
+  padding: 10px;
   border: 3px solid #7f8c8d;
   border-radius: 7px;
   margin-bottom: 10px;
+  text-align: right;
+  vertical-align: middle;
 }
 #queue{
   background-color: #ecf0f1;
-  width: 500px;
+  color: #2c3e50;
+  width: 480px;
   height: 100px;
+  padding: 10px;
   border: 3px solid #7f8c8d;
   border-radius: 15px;
   margin: 10px 0;

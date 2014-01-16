@@ -1,13 +1,16 @@
 $(document).ready(initalize);
 
 function initalize(){
+  $('.number').click(displayNumber);
   $('#push').click(compute);
   $('#push').click(computeMany);
   $('#push').click(gatherInfo);
   $('#clear').click(clear);
 }
-function display(){
-  $('#queue').text();
+
+function displayNumber(){
+  $this = $(this).text();
+  $('#answer').text($this);
 }
 
 function clear(){
