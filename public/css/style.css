@@ -16,6 +16,20 @@ h1 {color: #34495e;}
   margin: 10px;
 }
 
+#neg {
+  margin: 0 auto;
+  background-color: #1abc9c;
+  color: #ecf0f1;
+  display: inline-block;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 10px;
+}
+
 #push {
   background-color: #44a0de;
   color: #ecf0f1;

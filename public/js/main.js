@@ -7,37 +7,47 @@ function initalize(){
   $('#push').click(computeMany);
   $('#push').click(gatherInfo);
   $('#clear').click(clear);
+  $('#neg').click(negate);
 }
 
 function displayNumber(){
-  var display = $('answer').text();
-  var $this = $this.text();
-  var output;
+  var $this = $(this).text();
 
-  if (current === '.' && display.indexOf('.') !== -1) return;
-  if(display === '0' && current !== '.')
-    output = current;
-  else
-    output = display + current
-  $('answer').text(output);
-
-
-  if ($('#answer').text() === '0'){
+  if ($this === '.' && $('#answer').text().indexOf('.') !== -1)
+    return false;
+  if ($('#answer').text() === '0')
     $('#answer').text('');
-  }
-  oldNum = $('#answer').text();
-  $this = $(this).text();
-  if ($this.indexOf('.') === -1)
-  // $('#answer').text(this.textContent);
-  $('#answer').text(oldNum + "  " + $this);
+
+  var oldNum = $('#answer').text();
+  $('#answer').text(oldNum + $this);
 }
+
+function negate(){
+  var minus = '-';
+  var $currentNum = $('#answer').text();
+  if ($currentNum.indexOf('-') === -1){
+    $currentNum = minus.concat($currentNum);
+    $('#answer').text($currentNum);
+  }else{ 
+    $currentNum = $currentNum.slice(1);
+    $('#answer').text($currentNum);
+  }
+}
+
+// function negate(){
+//   var currentNum = $('#answer').text();
+//   currentNum = parseFloat(currentNum);
+//   currentNum = currentNum * -1
+//   alert(currentNum);
+//   $('#answer').text(currentNum);
+// }
 
 function operate(){
  var num1 = $('#answer').text();
  $('#queue').text(num1);
  num1 = parseFloat(num1);
  if ($('#answer').text() === '0'){
-   $('#answer').text('');
+  $('#answer').text('');
  }
 }
 
