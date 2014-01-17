@@ -72,6 +72,7 @@ function gatherInfo(){
 function compute(){
   var operator = this.id;
   var total;
+  var $lis = $('#queue li');
   switch(operator){
     case 'add':
       total = 0;
@@ -84,7 +85,6 @@ function compute(){
       break;
     case 'sub':
       total = 0;
-      var $lis = $('#queue li');
       var numbers = parseTags($lis);
       var num1 = numbers[0];
       var num2 = numbers[1];
