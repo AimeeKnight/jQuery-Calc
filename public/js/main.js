@@ -13,7 +13,7 @@ function initalize(){
 function displayNumber(){
   var $this = $(this).text();
 
-  if ($this === '.' && $('#answer').text().indexOf('.') !== -1)
+  if ($this === '.' && containsChar($('#answer').text(),'.' !== -1))
     return false;
   if ($('#answer').text() === '0')
     $('#answer').text('');
@@ -22,25 +22,24 @@ function displayNumber(){
   $('#answer').text(oldNum + $this);
 }
 
-function negate(){
+/*function negate(){
   var minus = '-';
   var $currentNum = $('#answer').text();
   if ($currentNum.indexOf('-') === -1){
     $currentNum = minus.concat($currentNum);
     $('#answer').text($currentNum);
-  }else{ 
+  }else{
     $currentNum = $currentNum.slice(1);
     $('#answer').text($currentNum);
   }
 }
+*/
 
-// function negate(){
-//   var currentNum = $('#answer').text();
-//   currentNum = parseFloat(currentNum);
-//   currentNum = currentNum * -1
-//   alert(currentNum);
-//   $('#answer').text(currentNum);
-// }
+function negate(){
+  var currentNum = $('#answer').text();
+  currentNum *= -1;
+  $('#answer').text(currentNum);
+}
 
 function operate(){
  var num1 = $('#answer').text();
