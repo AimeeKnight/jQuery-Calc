@@ -4,3 +4,9 @@ function containsChar(word, letter){
   else
     return false;
 }
+//$.map($lis, function(tag){return parseFloat(tag.textContent);})
+function parseTags($tags){
+  return $.map($tags, function(tag){
+    return parseFloat(tag.textContent);
+  });
+}

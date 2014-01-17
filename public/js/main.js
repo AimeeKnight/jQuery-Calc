@@ -84,12 +84,14 @@ function compute(){
       break;
     case 'sub':
       total = 0;
-      var numbers = parseTags($lis);
       var $lis = $('#queue li');
-      var num1 = $lis[0].textContent;
-      num1 = parseFloat(num1);
-      var num2 = $lis[1].textContent;
-      num2 = parseFloat(num2);
+      var numbers = parseTags($lis);
+      var num1 = numbers[0];
+      var num2 = numbers[1];
+      // var num1 = $lis[0].textContent;
+      // num1 = parseFloat(num1);
+      // var num2 = $lis[1].textContent;
+      // num2 = parseFloat(num2);
         total = num2 - num1;
       $('#answer').text(total);
       $('#queue').text('');
@@ -137,11 +139,6 @@ function compute(){
       $('#queue').text('');
       break;
   }
-}
-function parseTags($tags){
-  return $tags.map(function(tag){
-    return parseFloat(tag.textContent);
-  });
 }
 
 function compute1(x, y, op){
