@@ -1,7 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Exo+2);
-*{font-family: 'Exo 2';}
+@import url(http://fonts.googleapis.com/css?family=Exo+2:400,800,900);
+*{font-family: 'Exo 2';font-weight:800;}
 #main{background-color:#bdc3c7;width:400px;margin: 0 auto;padding: 20px;border-radius: 20px;border: 4px solid #7f8c8d;}
-h1 {color: #34495e;text-align: center;}
+h1 {color: #34495e;text-align: center;font-weight:900;}
 li {list-style-type: none;}
 #buttons {
   margin: 0 auto;
