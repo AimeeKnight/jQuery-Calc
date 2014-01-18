@@ -5,11 +5,20 @@ function initalize(){
   $('#neg').click(changeSign);
   $('#push').click(pushToQueue);
   $('.operator').click(compute);
-
-  $('#push').click(compute);
-  $('#push').click(computeMany);
-  $('#push').click(gatherInfo);
+  $('.button').mousedown(pushed);
   $('#clear').click(clear);
+}
+
+function pushed(){
+  $(this).css('background-color','#2c3e50');
+  $(this).mouseup(function() {
+    if ($(this).hasClass('number') || this.id === 'neg')
+      $(this).css('background-color', '#1abc9c');
+    else if ($(this).hasClass('operator'))
+      $(this).css('background-color', '#9b59b6');
+    else
+      $(this).css('background-color', '#3498db');
+  });
 }
 
 function displayNumber(){
@@ -57,130 +66,41 @@ function clear(){
   $('#queue').text('');
 }
 
-function gatherInfo(){
-  var num1 = $('#num1').val();
-  num1 = parseFloat(num1);
-
-  var num2 = $('#num2').val();
-  num2 = parseFloat(num2);
-
-  var op = $('#op').val();
-  var result = compute(num1, num2, op);
-  $('#answer').text(result);
-}
-
 function compute(){
   var operator = this.id;
-  var total;
+  var total = 0;
   var $lis = $('#queue li');
+  var numbers = parseTags($lis);
+
   switch(operator){
     case 'add':
-      total = 0;
       $('#queue li').each(function(i){
         var num = parseFloat($(this).text());
         total += num;
       });
-      $('#answer').text(total);
-      $('#queue').empty();
       break;
     case 'sub':
-      total = 0;
-      var numbers = parseTags($lis);
-      var num1 = numbers[0];
-      var num2 = numbers[1];
-      // var num1 = $lis[0].textContent;
-      // num1 = parseFloat(num1);
-      // var num2 = $lis[1].textContent;
-      // num2 = parseFloat(num2);
-        total = num2 - num1;
-      $('#answer').text(total);
-      $('#queue').text('');
+        total = numbers[1] - numbers[0];
       break;
     case 'mul':
-      total = 0;
-      $lis = $('#queue li');
-      num1 = $lis[0].textContent;
-      num1 = parseFloat(num1);
-      num2 = $lis[1].textContent;
-      num2 = parseFloat(num2);
-        total = num1 * num2;
-      $('#answer').text(total);
-      $('#queue').text('');
+        total = numbers[0] * numbers[1];
       break;
     case 'div':
-      total = 0;
-      $lis = $('#queue li');
-      num1 = $lis[0].textContent;
-      num1 = parseFloat(num1);
-      num2 = $lis[1].textContent;
-      num2 = parseFloat(num2);
-        total = num2 / num1;
-      $('#answer').text(total);
-      $('#queue').text('');
+        total = numbers[1] / numbers[0];
       break;
     case 'sum':
       $('#queue li').each(function(i){
         var num = parseFloat($(this).text());
         total += num;
       });
-      $('#answer').text(total);
-      $('#queue').text('');
       break;
     case'pow':
-      $lis = $('#queue li');
-      num1 = $lis[0].textContent;
-      num1 = parseFloat(num1);
-      num2 = $lis[1].textContent;
-      num2 = parseFloat(num2);
-      for(i=0; i< num1; i++){
-        total *= num2;
+      total = 1;
+      for(i=0; i< numbers[0]; i++){
+        total *= numbers[1];
       }
-      $('#answer').text(total);
-      $('#queue').text('');
       break;
   }
-}
-
-function compute1(x, y, op){
-  var total;
-  switch(op){
-    case '+':
-     total = x + y;
-     console.log(total);
-     break;
-    case '-':
-      total = x - y;
-      break;
-    case '*':
-      total = x * y;
-      break;
-    case '/':
-      total = x / y;
-  }
-  return total;
-}
-
-function computeMany(){
-  var op = $('#op').val();
-  var nums = $('.nums input');
-  var total = 0;
-
-  if(op === '+'){
-    $.each(nums,function(){
-      var $num = $(this).val();
-      total += parseFloat($num);
-      $('#result').text(total);
-      return total;
-    });
-  }else if (op === '*'){
-    $.each(nums,function(){
-      var $num = $(this).val();
-      $num = parseFloat($num);
-      if($num !== ''){
-        total *= parseFloat($num);
-      }
-      $('#answer').text(total);
-      return total;
-    });
-  }
+  $('#answer').text(total);
+  $('#queue').empty();
 }
