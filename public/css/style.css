@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Exo+2:400,800,900);
 *{font-family: 'Exo 2';font-weight:800;}
-#main{background-color:#bdc3c7;width:400px;margin: 0 auto;padding: 20px;border-radius: 20px;border: 4px solid #7f8c8d;}
+#main{background: url(grey_wash_wall.png);width:400px;margin: 0 auto;padding: 10px 20px;border-radius: 20px;border: 8px solid #7f8c8d;}
 h1 {color: #34495e;text-align: center;font-weight:900;}
 li {list-style-type: none;}
 #buttons {
@@ -14,12 +14,12 @@ li {list-style-type: none;}
   display: inline-block;
   border: 4px solid #ecf0f1;
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   padding: 15px;
   text-align: center;
   vertical-align: middle;
-  margin: 10px;
+  margin: 5px 20px;
 }
 
 #neg {
@@ -29,12 +29,12 @@ li {list-style-type: none;}
   display: inline-block;
   border: 4px solid #ecf0f1;
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   padding: 15px;
   text-align: center;
   vertical-align: middle;
-  margin: 10px;
+  margin: 5px 20px;
 }
 
 #push {
@@ -43,7 +43,7 @@ li {list-style-type: none;}
   display: inline-block;
   border: 4px solid #ecf0f1;
   border-radius: 20px;
-  padding: 15px;
+  padding: 15px 27px;
   margin: 10px;
   width: 90px;
   height: 25px;
@@ -57,7 +57,7 @@ li {list-style-type: none;}
   border: 4px solid #ecf0f1;
   border-radius: 20px;
   padding: 15px;
-  margin-top: 10px;
+  margin: 10px;
   width: 50px;
   height: 25px;
   text-align: center;
@@ -69,7 +69,7 @@ li {list-style-type: none;}
   display: inline-block;
   border-radius: 20px;
   border: 4px solid #ecf0f1;
-  padding: 15px;
+  padding: 15px 27px;
   margin: 10px;
   width: 90px;
   height: 25px;
@@ -83,8 +83,8 @@ li {list-style-type: none;}
   width: 370px;
   height: 30px;
   padding: 10px;
-  border: 4px solid #7f8c8d;
-  border-radius: 7px;
+  border: 6px solid #7f8c8d;
+  border-radius: 10px;
   text-align: right;
   vertical-align: middle;
 }
@@ -95,9 +95,10 @@ li {list-style-type: none;}
   width: 370px;
   height: 70px;
   padding: 10px;
-  border: 4px solid #7f8c8d;
-  border-radius: 7px;
+  border: 6px solid #7f8c8d;
+  border-radius: 10px;
   text-align: right;
   vertical-align: middle;
 }
+
 

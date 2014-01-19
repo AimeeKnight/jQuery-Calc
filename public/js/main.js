@@ -90,7 +90,7 @@ function compute(){
       break;
     case 'sum':
       $('#queue li').each(function(i){
-        var num = parseFloat($(this).text());
+        var num = parsefloat($(this).text());
         total += num;
       });
       break;
